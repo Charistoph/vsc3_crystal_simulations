@@ -1,0 +1,11 @@
+*.txt
+*.csv
+*.tsv
+*.gpw
+*.xlsx
+
+!bashrc.txt
+!caf2/eels_output/out_df_*
+!graphite/eels_output/out_df_*
+
+

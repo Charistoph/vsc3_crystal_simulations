@@ -1,0 +1,32 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# Git branch in prompt.
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+export PS1="\[\033[38;5;34m\]\u:\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;135m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\t\[\033[38;5;45m\]\$(parse_git_branch)\[\033[00m\]: \[$(tput sgr0)\]"
+
+# User specific aliases and functions
+
+module load intel/17 intel-mpi/2017 intel-mkl/2017 libxc/4.0.3 python/2.7 gobject-introspection/0.10.8 numpy/1.12.0 pycairo/1.8.8 pygobject/2.28.4 scipy/0.18.0 pygtk/2.24.0 ase/3.16.2 gpaw/1.4.0 gpaw_setups/0.9.20000
+
+alias ll='ls -alF'
+alias py='python'
+alias gp='git pull && git push'
+alias gc='git checkout'
+alias gitl='git log --oneline --decorate --graph --all'
+alias profile='vim ~/.bashrc'
+alias pyb='mpirun -np 16 gpaw-python'
+alias reload_bash='. ~/.bashrc'
+alias gits='git status'
+alias gpy='gpaw-python'
+

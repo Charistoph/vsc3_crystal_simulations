@@ -1,0 +1,77 @@
+Reading ground state calculation:
+  caf2.gpw
+Shifting Fermi-level by 0.00 eV
+Number of completely filled bands: 12
+Number of partially filled bands: 12
+Total number of bands: 60
+Number of blocks: 1
+nse.chi0.calculate with
+    q_c: [0.100000, 0.000000, 0.000000]
+    Number of frequency points: 1936
+    Planewave cutoff: 100.000000
+    Number of spins: 1
+    Number of bands: 60
+    Number of kpoints: 2800
+    Number of irredicible kpoints: 1400
+    Number of planewaves: 98
+    Broadening (eta): 0.200000
+    world.size: 16
+    kncomm.size: 16
+    blockcomm.size: 1
+    Number of completely occupied states: 12
+    Number of partially occupied states: 12
+
+    Memory estimate of potentially large arrays:
+        chi0_wGG: 283.711914 M / cpu
+        Occupied states: 0.062500 M / cpu
+        Memory usage before allocation: 2141.910156 M / cpu
+
+
+The ground calculation does not support time-reversal symmetry possibly because it has an inversion center or that it has been manually deactivated. 
+
+Point group included. Time reversal not included. Disabled non symmorphic symmetries. Found 2 allowed symmetries. 2800 groups of equivalent kpoints. 0.0% reduction. 
+
+  ( 1  0  0)  ( 1  0  0)
+  ( 0  1  0)  ( 0  0  1)
+  ( 0  0  1)  ( 0  1  0)
+
+Integrating density response function.
+Integral kind: spectral function
+Distributing domain [2800, 1] over 16 processes
+Number of blocks: 1
+25.6537914276s |----------------------------------------| Time: 22.473s
+Timing:                              incl.     excl.
+-----------------------------------------------------------
+Calculate CHI_0:                    48.753     8.887  17.4% |------|
+ CHI_0 spectral function update:     8.860     8.842  17.3% |------|
+  prep:                              0.017     0.017   0.0% |
+ Get eigenvalues:                    0.068     0.068   0.1% |
+ Get kpoints:                        0.091     0.004   0.0% |
+  Group kpoints:                     0.041     0.041   0.1% |
+  Initialize:                        0.046     0.004   0.0% |
+   Analyze:                          0.041     0.000   0.0% |
+    Group kpoints:                   0.041     0.041   0.1% |
+   Analyze symmetries.:              0.000     0.000   0.0% |
+ Get matrix element:                13.525     0.202   0.4% |
+  Get kpoint pair:                   2.538     0.005   0.0% |
+   fft indices:                      0.013     0.013   0.0% |
+   get k-points:                     2.521     0.005   0.0% |
+    Get a k-point:                   2.515     0.327   0.6% |
+     Load projections:               0.054     0.054   0.1% |
+     load wfs:                       2.134     2.134   4.2% |-|
+  Group kpoints:                     0.025     0.025   0.0% |
+  get_pair_density:                 10.760     0.099   0.2% |
+   conj:                             0.089     0.089   0.2% |
+   paw:                             10.573     0.971   1.9% ||
+    Calculate pair-densities:        9.601     3.785   7.4% |--|
+     fft:                            5.417     5.417  10.6% |---|
+     gemm:                           0.399     0.399   0.8% |
+ Hilbert transform:                 15.451    15.451  30.3% |-----------|
+ Initialize PAW corrections:         1.872     1.872   3.7% ||
+ redist:                             0.000     0.000   0.0% |
+Read ground state:                   2.085     2.085   4.1% |-|
+dist freq:                           0.005     0.005   0.0% |
+Other:                               0.147     0.147   0.3% |
+-----------------------------------------------------------
+Total:                                        50.989 100.0%
+
